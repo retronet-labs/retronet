@@ -19,6 +19,18 @@ RetroNet parte da due moduli gia disponibili:
 | [retronet-4004](https://github.com/retronet-labs/retronet-4004) | Attivo | Emulatore Intel 4004 in Go con set istruzioni completo, CLI, tracing, RAM virtuale, esempi e test. |
 | [retronet-asm](https://github.com/retronet-labs/retronet-asm) | Attivo | Assembler modulare multi-architettura con backend `i4004`, parser, lexer, symbol table, emitter a due passate ed esempi. |
 
+> **Demo di punta — calcolatrice da tavolo in assembly i4004.** Una calcolatrice
+> multi-cifra completa (`retronet-asm/examples/calcolatrice-completa.asm`) scritta in
+> assembly, assemblata con `retronet-asm` ed eseguita sull'emulatore `retronet-4004`
+> in modalità interattiva (`-io`): input a più cifre, aritmetica **BCD** e i quattro
+> operatori `+ − × ÷`. È la validazione end-to-end della coppia assembler ↔ emulatore.
+>
+> ```bash
+> retronet-asm build calcolatrice-completa.asm -o calc.rom
+> echo 99*99= | retronet-4004 -io calc.rom    # -> 9801
+> echo 144/12= | retronet-4004 -io calc.rom   # -> 12
+> ```
+
 I prossimi moduli previsti sono:
 
 | Modulo | Scopo |

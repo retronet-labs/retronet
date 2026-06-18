@@ -32,7 +32,10 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare backend `i4004`.
 - [x] Aggiungere esempi `.asm`.
 - [x] Validare output contro ROM golden di `retronet-4004`.
+- [x] Firmware calcolatrice completa in assembly (`+ − × ÷` multi-cifra, BCD) eseguibile su `retronet-4004 -io`.
 - [ ] Taggare release `v0.1.0`.
+- [ ] Direttiva `.org` per il page alignment (programmi `.asm` > 256 byte).
+- [ ] C3 calcolatrice: virgola/decimali, segno, algoritmi long-mult/long-div.
 - [ ] Progettare backend `i8008`.
 
 ## Fase 3 - Terminale retro
