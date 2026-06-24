@@ -21,7 +21,7 @@ documentato bene e integrarsi con gli altri.
 | [retronet-hardware](https://github.com/retronet-labs/retronet-hardware) | v0.2.0 | Strato **sequenziale**: latch, flip-flop, registri, register file, Program Counter e una **mini-CPU a 8 bit** costruita dai gate. Include i *bridge* che collegano gli emulatori alla ALU a porte. |
 | [retronet-4004](https://github.com/retronet-labs/retronet-4004) | v0.3.0 | Emulatore Intel 4004 in Go: 46 istruzioni, CLI, tracing, RAM virtuale, I/O interattivo (`-io`). **Delega l'aritmetica alla ALU a porte.** |
 | [retronet-8008](https://github.com/retronet-labs/retronet-8008) | — | Emulatore Intel 8008 in Go: decoder, timing, memoria, front panel, suite di conformità. **Delega l'aritmetica alla ALU a porte.** |
-| [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.0 | Assembler modulare multi-architettura (backend `i4004`): lexer, parser, symbol table, emitter a due passate, direttiva `.org`. |
+| [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.0 | Assembler modulare multi-architettura (backend `i4004` e `i8008`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`. |
 
 ## Dai transistor alla CPU
 

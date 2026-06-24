@@ -38,7 +38,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Direttiva `.org` per il page alignment (programmi `.asm` > 256 byte).
 - [x] Calcolatrice: virgola fissa (decimali) e segno negativo.
 - [ ] Algoritmi `×`/`÷` efficienti (oggi O(valore)).
-- [ ] Progettare backend `i8008`.
+- [x] Backend `i8008` (ALU + immediati, salti/CALL/condizionati, RST, INP/OUT, `.equ`).
 
 ## Fase G - Fondamenta gate-level (logic + hardware)
 
