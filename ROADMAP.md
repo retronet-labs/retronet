@@ -8,7 +8,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Pubblicare `retronet-4004`.
 - [x] Pubblicare `retronet-asm`.
 - [x] Creare repo vetrina `retronet`.
-- [ ] Aggiungere screenshot e diagrammi reali.
+- [x] Aggiungere una demo (transcript reale della calcolatrice in `assets/demos/`).
+- [ ] Aggiungere screenshot e diagrammi reali (immagini).
 - [ ] Creare issue template e label GitHub.
 - [ ] Creare project board.
 
@@ -20,8 +21,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Aggiungere trace/debugger integrato.
 - [x] Aggiungere esempi e testdata.
 - [x] Aggiungere Dockerfile.
-- [ ] Taggare release `v0.1.0`.
-- [ ] Pubblicare screenshot/output demo nella vetrina.
+- [x] Taggare release `v0.1.0` e `v0.2.0`.
+- [x] Pubblicare la demo (output) nella vetrina ([assets/demos/calcolatrice-4004.md](assets/demos/calcolatrice-4004.md)).
 
 ## Fase 2 - Stabilizzare `retronet-asm`
 
@@ -32,11 +33,24 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare backend `i4004`.
 - [x] Aggiungere esempi `.asm`.
 - [x] Validare output contro ROM golden di `retronet-4004`.
-- [x] Firmware calcolatrice completa in assembly (`+ − × ÷` multi-cifra, BCD) eseguibile su `retronet-4004 -io`.
-- [ ] Taggare release `v0.1.0`.
-- [ ] Direttiva `.org` per il page alignment (programmi `.asm` > 256 byte).
-- [ ] C3 calcolatrice: virgola/decimali, segno, algoritmi long-mult/long-div.
+- [x] Firmware calcolatrice completa in assembly (`+ − × ÷`, BCD) eseguibile su `retronet-4004 -io`.
+- [x] Taggare release `v0.1.0` e `v0.2.0`.
+- [x] Direttiva `.org` per il page alignment (programmi `.asm` > 256 byte).
+- [x] Calcolatrice: virgola fissa (decimali) e segno negativo.
+- [ ] Algoritmi `×`/`÷` efficienti (oggi O(valore)).
 - [ ] Progettare backend `i8008`.
+
+## Fase G - Fondamenta gate-level (logic + hardware)
+
+- [x] `retronet-logic`: gate NOT/AND/OR/NAND/NOR/XOR, half adder, full adder.
+- [x] `retronet-logic`: tipo Bus, sommatore a N bit (ripple-carry), multiplexer.
+- [x] `retronet-logic`: ALU combinatoria con flag Carry/Zero/Sign/Parity. Tag `v0.3.0`.
+- [x] `retronet-hardware`: latch SR, D latch, D flip-flop (master-slave).
+- [x] `retronet-hardware`: registro, register file, Program Counter, memoria.
+- [x] `retronet-hardware`: mini-CPU a 8 bit (datapath + control + ISA). Tag `v0.2.0`.
+- [x] Delega ALU: 4004 e 8008 eseguono l'aritmetica sulla ALU a porte (bridge + test di conformità).
+- [ ] Shifter combinatorio in `retronet-logic` (per delegare anche le rotazioni).
+- [ ] Estendere l'ISA della mini-CPU (CALL/RET, stack) e un mini-assembler dedicato.
 
 ## Fase 3 - Terminale retro
 
@@ -68,7 +82,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 
 ## Fasi successive
 
-- [ ] `retronet-8008`: secondo emulatore storico.
+- [x] `retronet-8008`: secondo emulatore storico (delega l'ALU alla libreria a porte).
 - [ ] `retronet-8080`: base per CP/M-like.
 - [ ] `retronet-cpm`: shell educativa con comandi `DIR`, `TYPE`, `RUN`.
 - [ ] `retronet-bbs`: Bulletin Board System locale/Telnet.
