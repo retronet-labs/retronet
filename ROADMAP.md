@@ -49,7 +49,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] `retronet-hardware`: registro, register file, Program Counter, memoria.
 - [x] `retronet-hardware`: mini-CPU a 8 bit (datapath + control + ISA). Tag `v0.2.0`.
 - [x] Delega ALU: 4004 e 8008 eseguono l'aritmetica sulla ALU a porte (bridge + test di conformità).
-- [ ] Shifter combinatorio in `retronet-logic` (per delegare anche le rotazioni).
+- [x] Shifter in `retronet-logic` + delega delle rotazioni (RAL/RAR/RLC/RRC) di 4004 e 8008; SHL/SHR nella mini-CPU.
 - [ ] Estendere l'ISA della mini-CPU (CALL/RET, stack) e un mini-assembler dedicato.
 
 ## Fase C - Consolidamento ecosistema
