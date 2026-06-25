@@ -21,7 +21,11 @@ git checkout -b feature/nome-breve
 
 3. Aggiungi test o esempi quando il cambiamento modifica comportamento.
 4. Aggiorna la documentazione se cambia l'uso pubblico.
-5. Apri una pull request con contesto, motivazione e istruzioni di verifica.
+5. Esegui `gofmt -l .`, `go vet ./...` e `go test ./...` nel modulo modificato.
+6. Se tocchi un contratto tra assembler ed emulatori, esegui dal clone di
+   `retronet` anche `bash ./scripts/test-integration.sh` oppure, su Windows,
+   `.\scripts\test-integration.ps1`.
+7. Apri una pull request con contesto, motivazione e istruzioni di verifica.
 
 ## Convenzione commit
 

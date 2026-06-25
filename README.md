@@ -20,7 +20,7 @@ documentato bene e integrarsi con gli altri.
 | [retronet-logic](https://github.com/retronet-labs/retronet-logic) | v0.3.0 | Libreria combinatoria a **porte logiche**: gate (NOT/AND/OR/NAND/NOR/XOR), half/full adder, sommatore a N bit, multiplexer e **ALU** con flag. Zero dipendenze. |
 | [retronet-hardware](https://github.com/retronet-labs/retronet-hardware) | v0.2.0 | Strato **sequenziale**: latch, flip-flop, registri, register file, Program Counter e una **mini-CPU a 8 bit** costruita dai gate. Include i *bridge* che collegano gli emulatori alla ALU a porte. |
 | [retronet-4004](https://github.com/retronet-labs/retronet-4004) | v0.3.0 | Emulatore Intel 4004 in Go: 46 istruzioni, CLI, tracing, RAM virtuale, I/O interattivo (`-io`). **Delega l'aritmetica alla ALU a porte.** |
-| [retronet-8008](https://github.com/retronet-labs/retronet-8008) | — | Emulatore Intel 8008 in Go: decoder, timing, memoria, front panel, suite di conformità. **Delega l'aritmetica alla ALU a porte.** |
+| [retronet-8008](https://github.com/retronet-labs/retronet-8008) | pre-v0.1.0 | Emulatore Intel 8008 in Go: decoder, timing, memoria, front panel, suite di conformità. **Delega l'aritmetica alla ALU a porte.** |
 | [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.0 | Assembler modulare multi-architettura (backend `i4004` e `i8008`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`. |
 
 ## Dai transistor alla CPU
@@ -78,7 +78,9 @@ echo 3-5=      | retronet-4004 -io calc.rom   # -> -2.00
 
 ## Quickstart
 
-Requisiti: **Go 1.25+**. Assicurati che `$(go env GOPATH)/bin` sia nel `PATH`.
+Requisiti: **Go 1.26.2+** per assembler ed emulatori. Le librerie
+`retronet-logic` e `retronet-hardware` mantengono compatibilità con Go 1.25.
+Assicurati che `$(go env GOPATH)/bin` sia nel `PATH`.
 
 **Installa gli emulatori** (anche con [`scripts/install.sh`](scripts/install.sh)):
 
@@ -116,6 +118,22 @@ retronet-asm        assembler multi-architettura
 
 Moduli previsti (rete e web storici): `retronet-terminal`, `retronet-ui`,
 `retronet-api`, `retronet-lab`. Vedi la [ROADMAP](ROADMAP.md).
+
+## Verifica integrata
+
+Con i repository clonati come cartelle sibling, il test di integrazione compila
+l'assembler e i due emulatori, quindi verifica due programmi reali:
+
+```bash
+bash ./scripts/test-integration.sh
+# integrazione RetroNet completata: 4004=3.75, 8008=42
+```
+
+Su Windows PowerShell:
+
+```powershell
+.\scripts\test-integration.ps1
+```
 
 ## Esperienza finale
 

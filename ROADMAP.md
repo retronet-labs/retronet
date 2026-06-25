@@ -52,6 +52,15 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [ ] Shifter combinatorio in `retronet-logic` (per delegare anche le rotazioni).
 - [ ] Estendere l'ISA della mini-CPU (CALL/RET, stack) e un mini-assembler dedicato.
 
+## Fase C - Consolidamento ecosistema
+
+- [x] Aggiungere CI a `retronet-4004`, `retronet-asm` e `retronet-8008`.
+- [x] Aggiungere un test end-to-end assembler -> 4004/8008 nel repo vetrina.
+- [x] Allineare il requisito Go e lo stato di `.equ` nella documentazione.
+- [x] Preparare la checklist di release `retronet-8008` v0.1.0.
+- [ ] Validare un campione 8008 contro un secondo emulatore indipendente.
+- [ ] Taggare `retronet-8008` v0.1.0 dopo CI verde sul commit candidato.
+
 ## Fase 3 - Terminale retro
 
 - [ ] Creare `retronet-terminal`.

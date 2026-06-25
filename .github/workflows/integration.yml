@@ -1,0 +1,58 @@
+name: Integrazione ecosistema
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  assembler-emulatori:
+    name: Assembler -> 4004/8008
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout retronet
+        uses: actions/checkout@v4
+        with:
+          path: retronet
+
+      - name: Checkout retronet-logic
+        uses: actions/checkout@v4
+        with:
+          repository: retronet-labs/retronet-logic
+          path: retronet-logic
+
+      - name: Checkout retronet-hardware
+        uses: actions/checkout@v4
+        with:
+          repository: retronet-labs/retronet-hardware
+          path: retronet-hardware
+
+      - name: Checkout retronet-asm
+        uses: actions/checkout@v4
+        with:
+          repository: retronet-labs/retronet-asm
+          path: retronet-asm
+
+      - name: Checkout retronet-4004
+        uses: actions/checkout@v4
+        with:
+          repository: retronet-labs/retronet-4004
+          path: retronet-4004
+
+      - name: Checkout retronet-8008
+        uses: actions/checkout@v4
+        with:
+          repository: retronet-labs/retronet-8008
+          path: retronet-8008
+
+      - name: Configura Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.26.2"
+          check-latest: true
+
+      - name: Crea workspace Go
+        run: go work init ./retronet-logic ./retronet-hardware ./retronet-asm ./retronet-4004 ./retronet-8008
+
+      - name: Test end-to-end
+        run: bash retronet/scripts/test-integration.sh

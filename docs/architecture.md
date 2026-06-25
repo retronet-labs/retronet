@@ -7,7 +7,10 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | Repository | Responsabilita |
 | --- | --- |
 | `retronet` | Vetrina, manifesto, roadmap, architettura e link ai sotto-progetti. |
+| `retronet-logic` | Logica combinatoria: porte, sommatori, multiplexer e ALU. |
+| `retronet-hardware` | Logica sequenziale, mini-CPU e bridge ALU per gli emulatori. |
 | `retronet-4004` | Emulatore Intel 4004 in Go. |
+| `retronet-8008` | Emulatore Intel 8008, profili macchina, debugger e periferiche. |
 | `retronet-asm` | Assembler modulare multi-architettura. |
 | `retronet-terminal` | Terminale retro locale e web. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
@@ -50,3 +53,5 @@ Profili futuri:
 - Il terminale non deve conoscere dettagli interni delle CPU.
 - L'API orchestra sessioni e websocket, ma non sostituisce i moduli CLI.
 - Il laboratorio Docker compone moduli gia funzionanti.
+- I contratti tra assembler ed emulatori sono verificati end-to-end dal repo
+  `retronet`, senza introdurre dipendenze Go tra i core CPU.
