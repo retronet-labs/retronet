@@ -11,7 +11,9 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-hardware` | Logica sequenziale, mini-CPU e bridge ALU per gli emulatori. |
 | `retronet-4004` | Emulatore Intel 4004 in Go. |
 | `retronet-8008` | Emulatore Intel 8008, profili macchina, debugger e periferiche. |
+| `retronet-8080` | Emulatore Intel 8080, profili macchina, debugger e validazione diagnostica CP/M. |
 | `retronet-asm` | Assembler modulare multi-architettura. |
+| `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`. |
 | `retronet-terminal` | Terminale retro locale e web. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
 | `retronet-api` | Backend Go per websocket, sessioni e health check. |

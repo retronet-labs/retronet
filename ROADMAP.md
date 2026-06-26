@@ -60,6 +60,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Preparare la checklist di release `retronet-8008` v0.1.0.
 - [ ] Validare un campione 8008 contro un secondo emulatore indipendente.
 - [ ] Taggare `retronet-8008` v0.1.0 dopo CI verde sul commit candidato.
+- [x] Pubblicare `retronet-8080` v0.1.1 con ALU gate/native e validazione 8080EXM.
+- [x] Pubblicare `retronet-cpm` v0.1.0 e completare il subset BDOS file read-only v0.2.
 
 ## Fase 3 - Terminale retro
 
@@ -92,8 +94,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 ## Fasi successive
 
 - [x] `retronet-8008`: secondo emulatore storico (delega l'ALU alla libreria a porte).
-- [ ] `retronet-8080`: base per CP/M-like.
-- [ ] `retronet-cpm`: shell educativa con comandi `DIR`, `TYPE`, `RUN`.
+- [x] `retronet-8080`: base per CP/M-like.
+- [x] `retronet-cpm`: shell educativa con comandi `DIR`, `TYPE`, `RUN` e BDOS subset read-only.
 - [ ] `retronet-bbs`: Bulletin Board System locale/Telnet.
 - [ ] `retronet-http`: HTTP 0.9/1.0 educativo.
 - [ ] `retronet-browser`: browser testuale storico.

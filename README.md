@@ -21,7 +21,9 @@ documentato bene e integrarsi con gli altri.
 | [retronet-hardware](https://github.com/retronet-labs/retronet-hardware) | v0.2.0 | Strato **sequenziale**: latch, flip-flop, registri, register file, Program Counter e una **mini-CPU a 8 bit** costruita dai gate. Include i *bridge* che collegano gli emulatori alla ALU a porte. |
 | [retronet-4004](https://github.com/retronet-labs/retronet-4004) | v0.3.0 | Emulatore Intel 4004 in Go: 46 istruzioni, CLI, tracing, RAM virtuale, I/O interattivo (`-io`). **Delega l'aritmetica alla ALU a porte.** |
 | [retronet-8008](https://github.com/retronet-labs/retronet-8008) | pre-v0.1.0 | Emulatore Intel 8008 in Go: decoder, timing, memoria, front panel, suite di conformità. **Delega l'aritmetica alla ALU a porte.** |
-| [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.0 | Assembler modulare multi-architettura (backend `i4004` e `i8008`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`. |
+| [retronet-8080](https://github.com/retronet-labs/retronet-8080) | v0.1.1 | Emulatore Intel 8080 instruction-accurate, validato con 8080EXM, ALU `gate`/`native`, profili macchina e debugger. |
+| [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.0 | Assembler modulare multi-architettura (backend `i4004`, `i8008`, `i8080`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`. |
+| [retronet-cpm](https://github.com/retronet-labs/retronet-cpm) | v0.2.0 | Ambiente CP/M-like didattico sopra l'8080: loader `.COM`, BDOS subset, drive `A:` host read-only e shell `A>`. |
 
 ## Dai transistor alla CPU
 
@@ -113,7 +115,9 @@ retronet-logic      libreria a porte logiche (combinatorio): gate -> ALU
 retronet-hardware   strato sequenziale: flip-flop -> registri -> mini-CPU + bridge
 retronet-4004       emulatore Intel 4004
 retronet-8008       emulatore Intel 8008
+retronet-8080       emulatore Intel 8080 validato da diagnostiche CP/M
 retronet-asm        assembler multi-architettura
+retronet-cpm        shell e BDOS subset CP/M-like sopra retronet-8080
 ```
 
 Moduli previsti (rete e web storici): `retronet-terminal`, `retronet-ui`,
