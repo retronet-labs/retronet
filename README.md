@@ -24,7 +24,7 @@ documentato bene e integrarsi con gli altri.
 | [retronet-8080](https://github.com/retronet-labs/retronet-8080) | v0.1.1 | Emulatore Intel 8080 instruction-accurate, validato con 8080EXM, ALU `gate`/`native`, profili macchina e debugger. |
 | [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.x | Assembler modulare multi-architettura (backend `i4004`, `i8008`, `i8080`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`/`.com`/`.include`. |
 | [retronet-cpm](https://github.com/retronet-labs/retronet-cpm) | v0.4.2 | Ambiente CP/M-like didattico sopra l'8080: loader `.COM`, BDOS subset file read/write opt-in, shell `A>`, terminale condiviso, sessioni API-ready, limiti sul drive host e conformance estesa. |
-| [retronet-terminal](https://github.com/retronet-labs/retronet-terminal) | v0.2.0 | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo 80x24, ANSI base, CLI demo e terminale live locale. |
+| [retronet-terminal](https://github.com/retronet-labs/retronet-terminal) | v0.2.1 | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo 80x24, ANSI base, CLI demo e terminale live locale con echo/prompt stabile. |
 
 ## Dai transistor alla CPU
 

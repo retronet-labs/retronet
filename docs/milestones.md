@@ -12,8 +12,8 @@ Obiettivo: consolidare le fondamenta gia create.
 - Core 8008, timing, debugger e conformance esaustiva completati.
 - Stack gate-level completato fino alla mini-CPU e ai bridge ALU.
 - Core 8080 validato con diagnostiche CP/M e ambiente `retronet-cpm` pubblicato.
-- `retronet-terminal` v0.2.0 pubblicato come core testuale indipendente con
-  snapshot/resize e terminale live locale.
+- `retronet-terminal` v0.2.1 pubblicato come core testuale indipendente con
+  snapshot/resize e terminale live locale con echo/prompt stabile.
 - `retronet-cpm` v0.4.2 pubblicato con sessioni API-ready e limiti configurabili
   sui drive host.
 
