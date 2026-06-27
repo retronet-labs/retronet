@@ -73,6 +73,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare output buffer e input handling.
 - [x] Aggiungere supporto ANSI base.
 - [x] Aggiungere demo locale.
+- [x] Pubblicare `retronet-terminal` v0.2.0 con comando live locale.
 - [x] Preparare `retronet-cpm/session` come bridge programmatico verso API.
 - [ ] Preparare websocket bridge.
 

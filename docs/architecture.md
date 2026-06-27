@@ -14,7 +14,7 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-8080` | Emulatore Intel 8080, profili macchina, debugger e validazione diagnostica CP/M. |
 | `retronet-asm` | Assembler modulare multi-architettura. |
 | `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`. |
-| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo e ANSI base. |
+| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base e CLI live locale. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
 | `retronet-api` | Backend Go per websocket, sessioni e health check. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
