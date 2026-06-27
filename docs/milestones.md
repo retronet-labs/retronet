@@ -14,6 +14,8 @@ Obiettivo: consolidare le fondamenta gia create.
 - Core 8080 validato con diagnostiche CP/M e ambiente `retronet-cpm` pubblicato.
 - `retronet-terminal` v0.1.1 pubblicato come core testuale indipendente con
   snapshot/resize.
+- `retronet-cpm` v0.4.2 pubblicato con sessioni API-ready e limiti configurabili
+  sui drive host.
 
 ## Prossima milestone: consolidamento e terminale
 
@@ -22,6 +24,7 @@ Obiettivo: arrivare al primo laboratorio web minimale.
 - CI su tutti i moduli Go e test end-to-end dell'ecosistema.
 - Release iniziale di `retronet-8008`.
 - `retronet-terminal` base, indipendente dalle CPU. (completato)
+- Bridge programmatico `retronet-cpm/session` pronto per essere orchestrato da API.
 - `retronet-api` minimale con websocket e sessioni.
 - `retronet-ui` minimale con terminale browser.
 - `retronet-lab` con Docker Compose per dashboard, API e demo 4004.

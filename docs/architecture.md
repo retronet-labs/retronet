@@ -30,11 +30,17 @@ retronet-api
     |
     v
 terminal session / emulator / BBS / CP/M-like
+    |
+    v
+retronet-cpm/session -> shell -> BDOS subset -> retronet-terminal
 ```
 
 `retronet-terminal` resta indipendente dai dettagli CPU/BDOS: i repo come
 `retronet-cpm` lo usano tramite adattatori, mentre il futuro websocket vivra' in
-`retronet-api`.
+`retronet-api`. Per le sessioni CP/M-like, `retronet-api` dovra' usare il package
+`retronet-cpm/session`: ricevera' input dal websocket, eseguira' comandi o run loop
+controllati e pubblichera' snapshot/output del terminale senza accedere direttamente
+al core CPU.
 
 ## Strategia Docker
 
@@ -59,6 +65,8 @@ Profili futuri:
 - Il terminale non deve conoscere dettagli interni delle CPU.
 - Il terminale non include ROM, font, terminfo o asset storici proprietari.
 - L'API orchestra sessioni e websocket, ma non sostituisce i moduli CLI.
+- L'API deve creare drive temporanei o radici esplicite con limiti di dimensione e
+  numero file, senza esporre path host arbitrari agli utenti remoti.
 - Il laboratorio Docker compone moduli gia funzionanti.
 - I contratti tra assembler ed emulatori sono verificati end-to-end dal repo
   `retronet`, senza introdurre dipendenze Go tra i core CPU.

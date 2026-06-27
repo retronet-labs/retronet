@@ -63,8 +63,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [ ] Taggare `retronet-8008` v0.1.0 dopo CI verde sul commit candidato.
 - [x] Pubblicare `retronet-8080` v0.1.1 con ALU gate/native e validazione 8080EXM.
 - [x] Pubblicare `retronet-cpm` v0.1.0, completare il subset BDOS file read-only
-  v0.2, v0.3 con write opt-in, v0.4 con terminale condiviso e v0.4.1 con
-  conformance estesa.
+  v0.2, v0.3 con write opt-in, v0.4 con terminale condiviso, v0.4.1 con
+  conformance estesa e v0.4.2 con sessioni API-ready e limiti sul drive host.
 
 ## Fase 3 - Terminale retro
 
@@ -73,6 +73,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare output buffer e input handling.
 - [x] Aggiungere supporto ANSI base.
 - [x] Aggiungere demo locale.
+- [x] Preparare `retronet-cpm/session` come bridge programmatico verso API.
 - [ ] Preparare websocket bridge.
 
 ## Fase 4 - Web Lab minimo
@@ -99,7 +100,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] `retronet-8008`: secondo emulatore storico (delega l'ALU alla libreria a porte).
 - [x] `retronet-8080`: base per CP/M-like.
 - [x] `retronet-cpm`: shell educativa con comandi `DIR`, `TYPE`, `RUN`, BDOS file
-  read/write opt-in e console condivisa via `retronet-terminal`.
+  read/write opt-in, console condivisa via `retronet-terminal`, sessioni API-ready
+  e limiti configurabili sui drive host.
 - [ ] `retronet-bbs`: Bulletin Board System locale/Telnet.
 - [ ] `retronet-http`: HTTP 0.9/1.0 educativo.
 - [ ] `retronet-browser`: browser testuale storico.
