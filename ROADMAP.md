@@ -39,6 +39,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Calcolatrice: virgola fissa (decimali) e segno negativo.
 - [ ] Algoritmi `×`/`÷` efficienti (oggi O(valore)).
 - [x] Backend `i8008` (ALU + immediati, salti/CALL/condizionati, RST, INP/OUT, `.equ`).
+- [x] Backend `i8080`, direttive `.com`/`.orgbase` e `.include` per esempi CP/M-like.
 
 ## Fase G - Fondamenta gate-level (logic + hardware)
 
@@ -61,15 +62,16 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [ ] Validare un campione 8008 contro un secondo emulatore indipendente.
 - [ ] Taggare `retronet-8008` v0.1.0 dopo CI verde sul commit candidato.
 - [x] Pubblicare `retronet-8080` v0.1.1 con ALU gate/native e validazione 8080EXM.
-- [x] Pubblicare `retronet-cpm` v0.1.0 e completare il subset BDOS file read-only v0.2.
+- [x] Pubblicare `retronet-cpm` v0.1.0, completare il subset BDOS file read-only
+  v0.2 e pubblicare v0.3 con write opt-in, command tail e FCB default sintetici.
 
 ## Fase 3 - Terminale retro
 
-- [ ] Creare `retronet-terminal`.
-- [ ] Implementare terminal core.
-- [ ] Implementare output buffer e input handling.
-- [ ] Aggiungere supporto ANSI base.
-- [ ] Aggiungere demo locale.
+- [x] Creare `retronet-terminal`.
+- [x] Implementare terminal core.
+- [x] Implementare output buffer e input handling.
+- [x] Aggiungere supporto ANSI base.
+- [x] Aggiungere demo locale.
 - [ ] Preparare websocket bridge.
 
 ## Fase 4 - Web Lab minimo
@@ -95,7 +97,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 
 - [x] `retronet-8008`: secondo emulatore storico (delega l'ALU alla libreria a porte).
 - [x] `retronet-8080`: base per CP/M-like.
-- [x] `retronet-cpm`: shell educativa con comandi `DIR`, `TYPE`, `RUN` e BDOS subset read-only.
+- [x] `retronet-cpm`: shell educativa con comandi `DIR`, `TYPE`, `RUN`, BDOS file
+  read/write opt-in e console condivisa via `retronet-terminal`.
 - [ ] `retronet-bbs`: Bulletin Board System locale/Telnet.
 - [ ] `retronet-http`: HTTP 0.9/1.0 educativo.
 - [ ] `retronet-browser`: browser testuale storico.

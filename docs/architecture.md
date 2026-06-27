@@ -14,7 +14,7 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-8080` | Emulatore Intel 8080, profili macchina, debugger e validazione diagnostica CP/M. |
 | `retronet-asm` | Assembler modulare multi-architettura. |
 | `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`. |
-| `retronet-terminal` | Terminale retro locale e web. |
+| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, schermo e ANSI base. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
 | `retronet-api` | Backend Go per websocket, sessioni e health check. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
@@ -31,6 +31,10 @@ retronet-api
     v
 terminal session / emulator / BBS / CP/M-like
 ```
+
+`retronet-terminal` resta indipendente dai dettagli CPU/BDOS: i repo come
+`retronet-cpm` lo usano tramite adattatori, mentre il futuro websocket vivra' in
+`retronet-api`.
 
 ## Strategia Docker
 
@@ -53,6 +57,7 @@ Profili futuri:
 - Gli emulatori devono restare utilizzabili da CLI anche senza UI.
 - L'assembler deve produrre ROM eseguibili dagli emulatori.
 - Il terminale non deve conoscere dettagli interni delle CPU.
+- Il terminale non include ROM, font, terminfo o asset storici proprietari.
 - L'API orchestra sessioni e websocket, ma non sostituisce i moduli CLI.
 - Il laboratorio Docker compone moduli gia funzionanti.
 - I contratti tra assembler ed emulatori sono verificati end-to-end dal repo
