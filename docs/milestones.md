@@ -12,7 +12,8 @@ Obiettivo: consolidare le fondamenta gia create.
 - Core 8008, timing, debugger e conformance esaustiva completati.
 - Stack gate-level completato fino alla mini-CPU e ai bridge ALU.
 - Core 8080 validato con diagnostiche CP/M e ambiente `retronet-cpm` pubblicato.
-- `retronet-terminal` v0.1.0 pubblicato come core testuale indipendente.
+- `retronet-terminal` v0.1.1 pubblicato come core testuale indipendente con
+  snapshot/resize.
 
 ## Prossima milestone: consolidamento e terminale
 

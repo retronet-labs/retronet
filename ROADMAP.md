@@ -63,13 +63,13 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [ ] Taggare `retronet-8008` v0.1.0 dopo CI verde sul commit candidato.
 - [x] Pubblicare `retronet-8080` v0.1.1 con ALU gate/native e validazione 8080EXM.
 - [x] Pubblicare `retronet-cpm` v0.1.0, completare il subset BDOS file read-only
-  v0.2, v0.3 con write opt-in e v0.4 con terminale condiviso, command tail e
-  FCB default sintetici.
+  v0.2, v0.3 con write opt-in, v0.4 con terminale condiviso e v0.4.1 con
+  conformance estesa.
 
 ## Fase 3 - Terminale retro
 
 - [x] Creare `retronet-terminal`.
-- [x] Implementare terminal core.
+- [x] Implementare terminal core con snapshot/resize.
 - [x] Implementare output buffer e input handling.
 - [x] Aggiungere supporto ANSI base.
 - [x] Aggiungere demo locale.
