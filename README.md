@@ -17,12 +17,14 @@ documentato bene e integrarsi con gli altri.
 
 | Modulo | Stato | Descrizione |
 | --- | --- | --- |
-| [retronet-logic](https://github.com/retronet-labs/retronet-logic) | v0.3.0 | Libreria combinatoria a **porte logiche**: gate (NOT/AND/OR/NAND/NOR/XOR), half/full adder, sommatore a N bit, multiplexer e **ALU** con flag. Zero dipendenze. |
-| [retronet-hardware](https://github.com/retronet-labs/retronet-hardware) | v0.2.0 | Strato **sequenziale**: latch, flip-flop, registri, register file, Program Counter e una **mini-CPU a 8 bit** costruita dai gate. Include i *bridge* che collegano gli emulatori alla ALU a porte. |
+| [retronet-logic](https://github.com/retronet-labs/retronet-logic) | v0.4.0 | Libreria combinatoria a **porte logiche**: gate (NOT/AND/OR/NAND/NOR/XOR), half/full adder, sommatore a N bit, multiplexer, **ALU** con flag e shifter di 1 bit. Zero dipendenze. |
+| [retronet-hardware](https://github.com/retronet-labs/retronet-hardware) | v0.7.1 | Strato **sequenziale**: latch, flip-flop, registri, register file, Program Counter e una **mini-CPU a 8 bit** costruita dai gate. Include i *bridge* (`i4004`/`i8008`/`i8086`) che collegano gli emulatori alla ALU a porte; il bridge **i8086** offre ALU 8/16 bit con OF/AF e mul/div/shift composti dai gate. |
 | [retronet-4004](https://github.com/retronet-labs/retronet-4004) | v0.3.0 | Emulatore Intel 4004 in Go: 46 istruzioni, CLI, tracing, RAM virtuale, I/O interattivo (`-io`). **Delega l'aritmetica alla ALU a porte.** |
 | [retronet-8008](https://github.com/retronet-labs/retronet-8008) | pre-v0.1.0 | Emulatore Intel 8008 in Go: decoder, timing, memoria, front panel, suite di conformità. **Delega l'aritmetica alla ALU a porte.** |
 | [retronet-8080](https://github.com/retronet-labs/retronet-8080) | v0.1.1 | Emulatore Intel 8080 instruction-accurate, validato con 8080EXM, ALU `gate`/`native`, profili macchina e debugger. |
-| [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.x | Assembler modulare multi-architettura (backend `i4004`, `i8008`, `i8080`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`/`.com`/`.include`. |
+| [retronet-8086](https://github.com/retronet-labs/retronet-8086) | v0.1.1 | Emulatore Intel **8086/8088** in real mode: ALU `gate`/`native`, profili 8086/8088, ModR/M, disassembler. Validato con **SingleStepTests (TomHarte)**: 99,15% (100% sul comportamento *definito*). Motore di retronet-pc. |
+| [retronet-pc](https://github.com/retronet-labs/retronet-pc) | in sviluppo | **IBM PC/XT** compatibile sopra retronet-8086: bus 1 MB, I/O, periferiche XT (8237/8259/8253/8255, FDC 765, MDA+CGA). **GLaBIOS completa il POST e BOOTA dal floppy**; tastiera con Shift. Può calcolare con l'ALU a sole **porte logiche** (`-alu gate`). |
+| [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.3.0 | Assembler modulare multi-architettura (backend `i4004`, `i8008`, `i8080`, `i8086`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`/`.com`/`.include`. Il backend `i8086` genera **boot sector** avviabili da retronet-pc. |
 | [retronet-cpm](https://github.com/retronet-labs/retronet-cpm) | v0.5.0 | Ambiente CP/M-like didattico sopra l'8080: loader `.COM`, BDOS subset file read/write opt-in, shell `A>`, terminale condiviso, sessioni API-ready, limiti sul drive host e terminale live locale. |
 | [retronet-terminal](https://github.com/retronet-labs/retronet-terminal) | v0.4.0 | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo 80x24, ANSI base, CLI live, package `live` e client `retronet-terminal-api` per WebSocket API. |
 | [retronet-api](https://github.com/retronet-labs/retronet-api) | v0.4.0 | Backend HTTP/WebSocket: sessioni CP/M-like temporanee, REST command, run asincrono, input/output sessione, websocket terminale JSON, CORS locale per UI, lista sessioni e upload `.COM` sicuro nel drive temporaneo. |
@@ -44,7 +46,11 @@ quello sotto, fino a una CPU funzionante fatta di sole porte logiche.
                                               mini-CPU 8 bit (strutturale)
 
 [emulatori dei chip reali]
-   retronet-4004 / retronet-8008  ──(bridge)──►  ALU a porte di retronet-logic
+   retronet-4004 / retronet-8008 / retronet-8086  ──(bridge)──►  ALU a porte di retronet-logic
+                                       │
+                                       ▼
+                              retronet-pc (IBM PC/XT): un PC che, con -alu gate,
+                              calcola dalle sole porte logiche
 ```
 
 Due punti che rendono il progetto particolare:
@@ -52,10 +58,11 @@ Due punti che rendono il progetto particolare:
 - **Una CPU vera dai gate.** La mini-CPU di `retronet-hardware` esegue un piccolo
   ISA (load, somma/sottrazione, logica, salti condizionati, halt) con datapath e
   register file costruiti da flip-flop e con l'ALU di `retronet-logic`.
-- **Gli emulatori girano sulla stessa ALU a porte.** 4004 e 8008 non calcolano
-  l'aritmetica con gli operatori di Go: la **delegano** alla ALU costruita dai
-  gate, attraverso adattatori (`bridge/i4004`, `bridge/i8008`) verificati da test
-  di conformità esaustivi.
+- **Gli emulatori girano sulla stessa ALU a porte.** 4004, 8008 e 8086 non
+  calcolano l'aritmetica con gli operatori di Go: la **delegano** alla ALU
+  costruita dai gate, attraverso adattatori (`bridge/i4004`, `bridge/i8008`,
+  `bridge/i8086`) verificati da test di conformità esaustivi. Persino un intero
+  **IBM PC/XT** (`retronet-pc`) può fare il POST e bootare calcolando dai gate.
 
 ## Demo di punta
 
@@ -119,7 +126,9 @@ retronet-hardware   strato sequenziale: flip-flop -> registri -> mini-CPU + brid
 retronet-4004       emulatore Intel 4004
 retronet-8008       emulatore Intel 8008
 retronet-8080       emulatore Intel 8080 validato da diagnostiche CP/M
-retronet-asm        assembler multi-architettura
+retronet-8086       emulatore Intel 8086/8088 (real mode), validato con SingleStepTests
+retronet-pc         IBM PC/XT compatibile sopra retronet-8086 (periferiche XT, BIOS, boot)
+retronet-asm        assembler multi-architettura (i4004/i8008/i8080/i8086)
 retronet-cpm        shell, BDOS subset, sessioni API-ready e terminale live sopra retronet-8080
 retronet-terminal   terminale testuale condiviso, runner live e client websocket per retronet-api
 retronet-api        backend HTTP/WebSocket per sessioni RetroNet, con run asincrono, input/output terminale e upload .COM limitato
@@ -128,6 +137,23 @@ retronet-ui         interfaccia browser per sessioni RetroNet via retronet-api, 
 
 Moduli previsti (rete e web storici): `retronet-lab` e i futuri
 servizi BBS/web. Vedi la [ROADMAP](ROADMAP.md).
+
+## Migrazione su un nuovo computer
+
+Per ricreare l'intero ecosistema (tutti i repo come cartelle sibling + i
+`go.work` di sviluppo locale, che **non** sono versionati) con un comando:
+
+```bash
+# clona prima questo repo vetrina, poi:
+bash retronet/scripts/migrate.sh        # Linux / macOS / Git Bash
+# oppure, su Windows PowerShell:
+powershell -File retronet\scripts\migrate.ps1
+```
+
+Lo script clona/aggiorna ogni modulo e rigenera i `go.work` per il co-sviluppo.
+Restano da procurarsi a mano gli **asset esterni non in git**: il BIOS
+**GLaBIOS** (per retronet-pc) e il dataset **SingleStepTests** (per
+retronet-8086). Guida completa: [docs/migration.md](docs/migration.md).
 
 ## Verifica integrata
 
