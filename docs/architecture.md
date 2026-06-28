@@ -13,8 +13,8 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-8008` | Emulatore Intel 8008, profili macchina, debugger e periferiche. |
 | `retronet-8080` | Emulatore Intel 8080, profili macchina, debugger e validazione diagnostica CP/M. |
 | `retronet-asm` | Assembler modulare multi-architettura. |
-| `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`. |
-| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base e CLI live locale. |
+| `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`, con sessioni API-ready e terminale live locale. |
+| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base e runner live riusabile. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
 | `retronet-api` | Backend Go per websocket, sessioni e health check. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
@@ -32,7 +32,7 @@ retronet-api
 terminal session / emulator / BBS / CP/M-like
     |
     v
-retronet-cpm/session -> shell -> BDOS subset -> retronet-terminal
+retronet-terminal/live -> retronet-cpm/session -> shell -> BDOS subset -> retronet-terminal
 ```
 
 `retronet-terminal` resta indipendente dai dettagli CPU/BDOS: i repo come
@@ -41,6 +41,10 @@ retronet-cpm/session -> shell -> BDOS subset -> retronet-terminal
 `retronet-cpm/session`: ricevera' input dal websocket, eseguira' comandi o run loop
 controllati e pubblichera' snapshot/output del terminale senza accedere direttamente
 al core CPU.
+
+`retronet-terminal/live` e' il modello locale gia funzionante: raw mode e output
+a delta oggi alimentano `retronet-cpm-live`; domani lo stesso schema verra'
+sostituito da websocket in `retronet-api`.
 
 ## Strategia Docker
 
