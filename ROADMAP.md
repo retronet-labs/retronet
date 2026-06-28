@@ -91,8 +91,10 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Collegare `retronet-terminal` a `retronet-api` con client CLI websocket.
 - [x] Creare `retronet-ui`.
 - [x] Collegare UI browser a `retronet-api` per sessioni CP/M-like.
+- [x] Esporre lista sessioni, lista file e upload `.COM` sicuro in `retronet-api` v0.4.0.
+- [x] Aggiungere in `retronet-ui` v0.2.0 dashboard sessioni/file, upload `.COM`, cursore e scrollback.
 - [ ] Valutare xterm.js o terminale web piu' maturo.
-- [ ] Mostrare dashboard con stato servizi.
+- [x] Mostrare dashboard minima con stato API, sessioni attive e file del drive temporaneo.
 - [ ] Collegare una demo 4004 dal browser.
 
 ## Fase 5 - Docker Lab

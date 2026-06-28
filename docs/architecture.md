@@ -15,14 +15,14 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-asm` | Assembler modulare multi-architettura. |
 | `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`, con sessioni API-ready e terminale live locale. |
 | `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base, runner live riusabile e client websocket API. |
-| `retronet-ui` | UI web minimale senza dipendenze esterne, servita da Go, per sessioni RetroNet via API. |
-| `retronet-api` | Backend Go per health check, session manager, REST command, run asincrono, input/output sessione, websocket terminale e CORS locale. |
+| `retronet-ui` | UI web minimale senza dipendenze esterne, servita da Go, per sessioni RetroNet via API: terminale browser, dashboard sessioni/file e upload `.COM`. |
+| `retronet-api` | Backend Go per health check, session manager, REST command, run asincrono, input/output sessione, websocket terminale, CORS locale e upload `.COM` limitato. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
 
 ## Flusso previsto del Web Lab
 
 ```text
-Browser con xterm.js
+Browser con terminale RetroNet
     |
     | WebSocket
     v
@@ -57,6 +57,18 @@ una sessione CP/M-like remota senza introdurre ROM o software storico.
 browser di creare sessioni da una porta diversa. `retronet-ui v0.1.0` usa questo
 contratto per offrire un primo terminale browser CP/M-like, senza framework o
 asset esterni.
+
+`retronet-api v0.4.0` aggiunge tre primitive necessarie al laboratorio web:
+lista sessioni, lista file del drive temporaneo e upload multipart di soli
+file `.COM`. L'upload passa dalla normalizzazione 8.3 del drive CP/M-like,
+rispetta limiti di dimensione/numero file e resta dentro la sessione temporanea:
+non vengono inclusi ROM, BIOS, BDOS, dischi o programmi storici.
+
+`retronet-ui v0.2.0` consuma queste primitive con una dashboard minima: stato
+API, sessioni attive, file nel drive `A:`, upload `.COM`, cursore visibile nel
+terminale browser e scrollback separato dall'immagine 80x24. La UI resta
+volutamente senza dipendenze esterne finche' non viene scelto e verificato un
+terminale web piu' maturo.
 
 ## Strategia Docker
 
