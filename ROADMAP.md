@@ -86,6 +86,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare session manager.
 - [x] Implementare websocket terminale.
 - [x] Esporre REST lifecycle iniziale per sessioni CP/M-like.
+- [x] Esporre stato sessione, `run` asincrono e input/output terminale per API v0.2.0.
 - [ ] Creare `retronet-ui`.
 - [ ] Integrare xterm.js.
 - [ ] Mostrare dashboard con stato servizi.

@@ -16,8 +16,9 @@ Obiettivo: consolidare le fondamenta gia create.
   snapshot/resize e package `live` riusabile.
 - `retronet-cpm` v0.5.0 pubblicato con sessioni API-ready, limiti configurabili
   sui drive host e terminale live locale `A>`.
-- `retronet-api` v0.1.0 pubblicato con health, session manager, sessioni
-  CP/M-like temporanee, REST command e websocket terminale.
+- `retronet-api` v0.2.0 pubblicato con health, session manager, sessioni
+  CP/M-like temporanee, REST command, run asincrono, input/output terminale e
+  websocket terminale.
 
 ## Prossima milestone: consolidamento e terminale
 
@@ -29,7 +30,7 @@ Obiettivo: arrivare al primo laboratorio web minimale.
   (completato)
 - Bridge programmatico `retronet-cpm/session` pronto per essere orchestrato da API.
 - Shell CP/M-like live locale sopra `retronet-terminal/live`. (completato)
-- `retronet-api` minimale con websocket e sessioni. (completato)
+- `retronet-api` con websocket, sessioni e flusso interattivo v0.2.0. (completato)
 - `retronet-ui` minimale con terminale browser.
 - `retronet-lab` con Docker Compose per dashboard, API e demo 4004.
 
@@ -47,7 +48,7 @@ Obiettivo: rendere interattivo l'ecosistema dal browser.
 
 - Terminale web maturo.
 - `retronet-terminal` base, indipendente dalle CPU.
-- `retronet-api` minimale con websocket e sessioni.
+- `retronet-api` con websocket, sessioni e flusso interattivo v0.2.0.
 - `retronet-ui` minimale con terminale browser.
 - Docker Lab presentabile come demo portfolio.
 
