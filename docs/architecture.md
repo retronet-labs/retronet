@@ -16,7 +16,7 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`, con sessioni API-ready e terminale live locale. |
 | `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base e runner live riusabile. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
-| `retronet-api` | Backend Go per websocket, sessioni e health check. |
+| `retronet-api` | Backend Go per health check, session manager, REST command e websocket terminale. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
 
 ## Flusso previsto del Web Lab
@@ -45,6 +45,10 @@ al core CPU.
 `retronet-terminal/live` e' il modello locale gia funzionante: raw mode e output
 a delta oggi alimentano `retronet-cpm-live`; domani lo stesso schema verra'
 sostituito da websocket in `retronet-api`.
+
+`retronet-api v0.1.0` implementa gia il primo ponte remoto: crea sessioni
+CP/M-like temporanee, espone comandi REST e accetta messaggi websocket JSON per
+input, comando e snapshot.
 
 ## Strategia Docker
 

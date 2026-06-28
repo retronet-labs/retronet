@@ -77,14 +77,15 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Pubblicare `retronet-terminal` v0.3.0 con package `live` riusabile.
 - [x] Preparare `retronet-cpm/session` come bridge programmatico verso API.
 - [x] Collegare `retronet-cpm/session` a un terminale locale live.
-- [ ] Preparare websocket bridge.
+- [x] Preparare websocket bridge in `retronet-api`.
 
 ## Fase 4 - Web Lab minimo
 
-- [ ] Creare `retronet-api`.
-- [ ] Implementare `GET /health`.
-- [ ] Implementare session manager.
-- [ ] Implementare websocket terminale.
+- [x] Creare `retronet-api`.
+- [x] Implementare `GET /health`.
+- [x] Implementare session manager.
+- [x] Implementare websocket terminale.
+- [x] Esporre REST lifecycle iniziale per sessioni CP/M-like.
 - [ ] Creare `retronet-ui`.
 - [ ] Integrare xterm.js.
 - [ ] Mostrare dashboard con stato servizi.
