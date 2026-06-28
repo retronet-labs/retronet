@@ -14,7 +14,7 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-8080` | Emulatore Intel 8080, profili macchina, debugger e validazione diagnostica CP/M. |
 | `retronet-asm` | Assembler modulare multi-architettura. |
 | `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`, con sessioni API-ready e terminale live locale. |
-| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base e runner live riusabile. |
+| `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base, runner live riusabile e client websocket API. |
 | `retronet-ui` | Dashboard web React/TypeScript. |
 | `retronet-api` | Backend Go per health check, session manager, REST command, run asincrono, input/output sessione e websocket terminale. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
@@ -43,12 +43,15 @@ controllati e pubblichera' snapshot/output del terminale senza accedere direttam
 al core CPU.
 
 `retronet-terminal/live` e' il modello locale gia funzionante: raw mode e output
-a delta oggi alimentano `retronet-cpm-live`; domani lo stesso schema verra'
-sostituito da websocket in `retronet-api`.
+a delta alimentano `retronet-cpm-live`. Da `retronet-terminal v0.4.0`, il comando
+`retronet-terminal-api` collega invece una console host al websocket di
+`retronet-api`.
 
 `retronet-api v0.2.0` implementa gia il primo ponte remoto interattivo: crea
 sessioni CP/M-like temporanee, espone comandi REST sincroni, `run` asincrono,
 input/output terminale e messaggi websocket JSON per output, stato e snapshot.
+Insieme a `retronet-terminal-api`, questo rende utilizzabile da console locale
+una sessione CP/M-like remota senza introdurre ROM o software storico.
 
 ## Strategia Docker
 

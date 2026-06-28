@@ -74,7 +74,8 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare output buffer e input handling.
 - [x] Aggiungere supporto ANSI base.
 - [x] Aggiungere demo locale.
-- [x] Pubblicare `retronet-terminal` v0.3.0 con package `live` riusabile.
+- [x] Pubblicare `retronet-terminal` v0.4.0 con package `live` riusabile e
+  client websocket `retronet-terminal-api`.
 - [x] Preparare `retronet-cpm/session` come bridge programmatico verso API.
 - [x] Collegare `retronet-cpm/session` a un terminale locale live.
 - [x] Preparare websocket bridge in `retronet-api`.
@@ -87,6 +88,7 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Implementare websocket terminale.
 - [x] Esporre REST lifecycle iniziale per sessioni CP/M-like.
 - [x] Esporre stato sessione, `run` asincrono e input/output terminale per API v0.2.0.
+- [x] Collegare `retronet-terminal` a `retronet-api` con client CLI websocket.
 - [ ] Creare `retronet-ui`.
 - [ ] Integrare xterm.js.
 - [ ] Mostrare dashboard con stato servizi.

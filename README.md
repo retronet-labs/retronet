@@ -24,7 +24,7 @@ documentato bene e integrarsi con gli altri.
 | [retronet-8080](https://github.com/retronet-labs/retronet-8080) | v0.1.1 | Emulatore Intel 8080 instruction-accurate, validato con 8080EXM, ALU `gate`/`native`, profili macchina e debugger. |
 | [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.x | Assembler modulare multi-architettura (backend `i4004`, `i8008`, `i8080`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`/`.com`/`.include`. |
 | [retronet-cpm](https://github.com/retronet-labs/retronet-cpm) | v0.5.0 | Ambiente CP/M-like didattico sopra l'8080: loader `.COM`, BDOS subset file read/write opt-in, shell `A>`, terminale condiviso, sessioni API-ready, limiti sul drive host e terminale live locale. |
-| [retronet-terminal](https://github.com/retronet-labs/retronet-terminal) | v0.3.0 | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo 80x24, ANSI base, CLI live e package `live` riusabile da CP/M/API. |
+| [retronet-terminal](https://github.com/retronet-labs/retronet-terminal) | v0.4.0 | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo 80x24, ANSI base, CLI live, package `live` e client `retronet-terminal-api` per WebSocket API. |
 | [retronet-api](https://github.com/retronet-labs/retronet-api) | v0.2.0 | Backend HTTP/WebSocket: health/version, session manager, sessioni CP/M-like temporanee, REST command, run asincrono, input/output sessione e websocket terminale JSON. |
 
 ## Dai transistor alla CPU
@@ -120,7 +120,7 @@ retronet-8008       emulatore Intel 8008
 retronet-8080       emulatore Intel 8080 validato da diagnostiche CP/M
 retronet-asm        assembler multi-architettura
 retronet-cpm        shell, BDOS subset, sessioni API-ready e terminale live sopra retronet-8080
-retronet-terminal   terminale testuale condiviso e runner live per CP/M-like, BBS e websocket
+retronet-terminal   terminale testuale condiviso, runner live e client websocket per retronet-api
 retronet-api        backend HTTP/WebSocket per sessioni RetroNet, con run asincrono e input/output terminale
 ```
 
