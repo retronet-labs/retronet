@@ -15,8 +15,8 @@ RetroNet usa repository separati per mantenere ogni modulo indipendente, testabi
 | `retronet-asm` | Assembler modulare multi-architettura. |
 | `retronet-cpm` | Ambiente CP/M-like didattico sopra `retronet-8080`, con sessioni API-ready e terminale live locale. |
 | `retronet-terminal` | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo, ANSI base, runner live riusabile e client websocket API. |
-| `retronet-ui` | Dashboard web React/TypeScript. |
-| `retronet-api` | Backend Go per health check, session manager, REST command, run asincrono, input/output sessione e websocket terminale. |
+| `retronet-ui` | UI web minimale senza dipendenze esterne, servita da Go, per sessioni RetroNet via API. |
+| `retronet-api` | Backend Go per health check, session manager, REST command, run asincrono, input/output sessione, websocket terminale e CORS locale. |
 | `retronet-lab` | Docker Compose del laboratorio completo. |
 
 ## Flusso previsto del Web Lab
@@ -36,10 +36,10 @@ retronet-terminal/live -> retronet-cpm/session -> shell -> BDOS subset -> retron
 ```
 
 `retronet-terminal` resta indipendente dai dettagli CPU/BDOS: i repo come
-`retronet-cpm` lo usano tramite adattatori, mentre il futuro websocket vivra' in
-`retronet-api`. Per le sessioni CP/M-like, `retronet-api` dovra' usare il package
-`retronet-cpm/session`: ricevera' input dal websocket, eseguira' comandi o run loop
-controllati e pubblichera' snapshot/output del terminale senza accedere direttamente
+`retronet-cpm` lo usano tramite adattatori, mentre il websocket vive in
+`retronet-api`. Per le sessioni CP/M-like, `retronet-api` usa il package
+`retronet-cpm/session`: riceve input dal websocket, esegue comandi o run loop
+controllati e pubblica snapshot/output del terminale senza accedere direttamente
 al core CPU.
 
 `retronet-terminal/live` e' il modello locale gia funzionante: raw mode e output
@@ -53,12 +53,17 @@ input/output terminale e messaggi websocket JSON per output, stato e snapshot.
 Insieme a `retronet-terminal-api`, questo rende utilizzabile da console locale
 una sessione CP/M-like remota senza introdurre ROM o software storico.
 
+`retronet-api v0.3.0` aggiunge CORS locale configurabile per permettere alla UI
+browser di creare sessioni da una porta diversa. `retronet-ui v0.1.0` usa questo
+contratto per offrire un primo terminale browser CP/M-like, senza framework o
+asset esterni.
+
 ## Strategia Docker
 
 Ogni repo eseguibile dovrebbe avere il proprio `Dockerfile`. Il repo `retronet-lab` li collega con Docker Compose:
 
 ```text
-retronet-ui    -> porta 3000
+retronet-ui    -> porta 18081
 retronet-api   -> porta 8080
 retronet-4004  -> servizio demo CPU
 ```

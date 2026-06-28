@@ -25,7 +25,8 @@ documentato bene e integrarsi con gli altri.
 | [retronet-asm](https://github.com/retronet-labs/retronet-asm) | v0.2.x | Assembler modulare multi-architettura (backend `i4004`, `i8008`, `i8080`): lexer, parser, symbol table, emitter a due passate, direttive `.org`/`.equ`/`.com`/`.include`. |
 | [retronet-cpm](https://github.com/retronet-labs/retronet-cpm) | v0.5.0 | Ambiente CP/M-like didattico sopra l'8080: loader `.COM`, BDOS subset file read/write opt-in, shell `A>`, terminale condiviso, sessioni API-ready, limiti sul drive host e terminale live locale. |
 | [retronet-terminal](https://github.com/retronet-labs/retronet-terminal) | v0.4.0 | Terminale testuale condiviso: input queue, output raw, snapshot, resize, schermo 80x24, ANSI base, CLI live, package `live` e client `retronet-terminal-api` per WebSocket API. |
-| [retronet-api](https://github.com/retronet-labs/retronet-api) | v0.2.0 | Backend HTTP/WebSocket: health/version, session manager, sessioni CP/M-like temporanee, REST command, run asincrono, input/output sessione e websocket terminale JSON. |
+| [retronet-api](https://github.com/retronet-labs/retronet-api) | v0.3.0 | Backend HTTP/WebSocket: health/version, session manager, sessioni CP/M-like temporanee, REST command, run asincrono, input/output sessione, websocket terminale JSON e CORS locale per UI. |
+| [retronet-ui](https://github.com/retronet-labs/retronet-ui) | v0.1.0 | UI web minimale senza dipendenze esterne: server Go, terminale browser, creazione sessioni CP/M-like via API e WebSocket. |
 
 ## Dai transistor alla CPU
 
@@ -122,9 +123,10 @@ retronet-asm        assembler multi-architettura
 retronet-cpm        shell, BDOS subset, sessioni API-ready e terminale live sopra retronet-8080
 retronet-terminal   terminale testuale condiviso, runner live e client websocket per retronet-api
 retronet-api        backend HTTP/WebSocket per sessioni RetroNet, con run asincrono e input/output terminale
+retronet-ui         interfaccia browser per sessioni RetroNet via retronet-api
 ```
 
-Moduli previsti (rete e web storici): `retronet-ui`, `retronet-lab` e i futuri
+Moduli previsti (rete e web storici): `retronet-lab` e i futuri
 servizi BBS/web. Vedi la [ROADMAP](ROADMAP.md).
 
 ## Verifica integrata

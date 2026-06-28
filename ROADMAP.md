@@ -89,8 +89,9 @@ Questa roadmap aggiorna il piano originale allo stato reale dei repository gia c
 - [x] Esporre REST lifecycle iniziale per sessioni CP/M-like.
 - [x] Esporre stato sessione, `run` asincrono e input/output terminale per API v0.2.0.
 - [x] Collegare `retronet-terminal` a `retronet-api` con client CLI websocket.
-- [ ] Creare `retronet-ui`.
-- [ ] Integrare xterm.js.
+- [x] Creare `retronet-ui`.
+- [x] Collegare UI browser a `retronet-api` per sessioni CP/M-like.
+- [ ] Valutare xterm.js o terminale web piu' maturo.
 - [ ] Mostrare dashboard con stato servizi.
 - [ ] Collegare una demo 4004 dal browser.
 

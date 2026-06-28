@@ -17,9 +17,11 @@ Obiettivo: consolidare le fondamenta gia create.
   `retronet-terminal-api`.
 - `retronet-cpm` v0.5.0 pubblicato con sessioni API-ready, limiti configurabili
   sui drive host e terminale live locale `A>`.
-- `retronet-api` v0.2.0 pubblicato con health, session manager, sessioni
+- `retronet-api` v0.3.0 pubblicato con health, session manager, sessioni
   CP/M-like temporanee, REST command, run asincrono, input/output terminale e
-  websocket terminale.
+  websocket terminale, piu' CORS locale per UI.
+- `retronet-ui` v0.1.0 pubblicato con server Go, asset embeddati e terminale
+  browser per sessioni CP/M-like via API.
 
 ## Prossima milestone: consolidamento e terminale
 
@@ -34,7 +36,7 @@ Obiettivo: arrivare al primo laboratorio web minimale.
 - `retronet-api` con websocket, sessioni e flusso interattivo v0.2.0. (completato)
 - `retronet-terminal-api` collegato a `retronet-api` per sessioni CP/M-like
   remote da console locale. (completato)
-- `retronet-ui` minimale con terminale browser.
+- `retronet-ui` minimale con terminale browser. (completato)
 - `retronet-lab` con Docker Compose per dashboard, API e demo 4004.
 
 ## Milestone completata: Intel 8080 e CP/M-like
@@ -51,9 +53,9 @@ Obiettivo: rendere interattivo l'ecosistema dal browser.
 
 - Terminale web maturo.
 - `retronet-terminal` base, indipendente dalle CPU.
-- `retronet-api` con websocket, sessioni e flusso interattivo v0.2.0.
+- `retronet-api` con websocket, sessioni, CORS locale e flusso interattivo v0.3.0.
 - `retronet-terminal-api` come client websocket locale per API.
-- `retronet-ui` minimale con terminale browser.
+- `retronet-ui` minimale con terminale browser. (completato)
 - Docker Lab presentabile come demo portfolio.
 
 ## Orizzonte lungo
